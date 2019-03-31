@@ -1,6 +1,7 @@
 package com.example.kushal.wifianalyser;
 
 import android.content.Context;
+import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -54,7 +55,16 @@ public class MainActivity extends AppCompatActivity {
     //getWifiStrength
     public void getStrength(View v){
         if(isWifi){
-            tv.setText("This will display wifi strength!");
+            WifiInfo wifiInfo=wifiManager.getConnectionInfo();
+            //to check if connected to a network
+            if(String.valueOf(wifiInfo.getSupplicantState()).equals("COMPLETED")){
+                String content= "SSID :"+wifiInfo.getSSID()+"\nBSSID :"+wifiInfo.getBSSID();
+                //get Frequency will only on specific versions of android
+                content=content+"\nFrequency :"+wifiInfo.getFrequency()+"\nIP Address:"+wifiInfo.getIpAddress()+"\nRSSI :"+wifiInfo.getRssi();
+                tv.setText(content);
+            }else{
+                tv.setText("Connect to a network!");
+            }
         }else{
             tv.setText("Enable WIFI first!");
         }
