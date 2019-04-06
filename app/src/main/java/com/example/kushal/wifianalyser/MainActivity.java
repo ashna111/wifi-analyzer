@@ -60,7 +60,13 @@ public class MainActivity extends AppCompatActivity {
             if(String.valueOf(wifiInfo.getSupplicantState()).equals("COMPLETED")){
                 String content= "SSID :"+wifiInfo.getSSID()+"\nBSSID :"+wifiInfo.getBSSID();
                 //get Frequency will only on specific versions of android
-                content=content+"\nFrequency :"+wifiInfo.getFrequency()+"\nIP Address:"+wifiInfo.getIpAddress()+"\nRSSI :"+wifiInfo.getRssi();
+                content=content+"\nFrequency :"+wifiInfo.getFrequency()+"\nIP Address:"+wifiInfo.getIpAddress();
+
+                int ss=wifiInfo.getRssi(); // get signal strength
+                content=content+"\nRSSI :"+ss+" dBm\n\n";
+
+                String status=getStatus(ss);
+                content=content+"Signal Strength : "+status;
                 tv.setText(content);
             }else{
                 tv.setText("Connect to a network!");
@@ -68,5 +74,12 @@ public class MainActivity extends AppCompatActivity {
         }else{
             tv.setText("Enable WIFI first!");
         }
+    }
+
+    public String getStatus(int DBm){
+        if(DBm >= -50) return "Excellent";
+        else if (DBm < -50 && DBm >= -60) return "Good";
+        else if (DBm < -60 && DBm >= -70) return "Fair";
+        else return "Poor";
     }
 }
