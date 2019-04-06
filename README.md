@@ -2,7 +2,7 @@
 <img src='ss/wifi.png'>
 
 * _Enable/Disable WIFI_
-* _Displays BSSID, RSSI, Frequency of the connected network_
+* _Displays SSID, BSSID, RSSI, Frequency of the connected network_
 * _Displays signal strength_
 <br>
 <div align="center">
