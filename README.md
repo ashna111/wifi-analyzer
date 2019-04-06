@@ -3,6 +3,7 @@
 
 * _Enable/Disable WIFI_
 * _Displays BSSID, RSSI, Frequency of the connected network_
+* _Displays signal strength_
 <br>
 <div align="center">
   <img src='ss/wifi-off.jpeg' width=230px/>
