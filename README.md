@@ -9,3 +9,5 @@
   <img src='ss/wifi-off.jpeg' width=230px/>
   <img src='ss/wifi-on.jpeg' width=230px/>
 </div>
+
+Made for the MCAN Lab 2019 :)
